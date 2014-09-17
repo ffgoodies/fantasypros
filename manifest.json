@@ -1,0 +1,28 @@
+{
+  "manifest_version": 2,
+  "name": "ffgoodies - fantasypros.com",
+  "version": "1.0.0",
+
+  "description": "Shows the accuracy when hovering over an experts name on http://www.fantasypros.com",
+
+  "permissions": [
+    "activeTab",
+    "storage",
+    "http://www.fantasypros.com/"
+  ],
+ 
+ "content_scripts": [
+    {
+      "matches": ["http://www.fantasypros.com/*"],
+      "js": ["app/script/jquery-2.1.1.min.js", "app/script/base.js"]
+    },
+    {
+      "matches": ["http://www.fantasypros.com/nfl/accuracy/"],
+      "js": ["app/script/cache_in-season.js"]
+    },
+    {
+      "matches": ["http://www.fantasypros.com/nfl/accuracy/weekly.php"],
+      "js": ["app/script/cache_weekly.js"]
+    }
+  ]
+}
